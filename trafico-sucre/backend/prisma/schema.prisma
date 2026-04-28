@@ -1,0 +1,37 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Node {
+  id        String   @id
+  osmid     BigInt   @unique
+  lat       Float
+  lon       Float
+  edges     Edge[]   @relation("FromNode")
+  edgesTo   Edge[]   @relation("ToNode")
+}
+
+model Edge {
+  id         String  @id @default(cuid())
+  fromId     String
+  toId       String
+  length     Float
+  name       String?
+  maxspeed   String?
+  from       Node    @relation("FromNode", fields: [fromId], references: [id])
+  to         Node    @relation("ToNode", fields: [toId], references: [id])
+}
+
+model Intersection {
+  id          String  @id @default(cuid())
+  nodeId      String  @unique
+  arrivalRate Float   @default(0.5)
+  serviceRate Float   @default(1.0)
+  greenTime   Int     @default(30)
+  redTime     Int     @default(30)
+}

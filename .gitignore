@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+frontend/.next/
+frontend/node_modules/
+backend/node_modules/
+reports/vendor/
+
+# Environment
+.env
+**/.env
+
+# Docker volumes
+postgres_data/
+mysql_data/
+
+# Logs
+*.log
