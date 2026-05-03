@@ -5,12 +5,11 @@ Simulador de flujo vehicular sobre el corredor **Sucre → Libertador, Buenos Ai
 Proyecto académico que aplica conceptos de **Ciencias de la Computación** (grafos, algoritmos de camino mínimo, teoría de colas) en un problema urbano real.
 
 ---
+En muchas carpetas hay md explicando que hace cada cosa. Hay uno genral Documento.md , otro en backend y comentarios dentro de los arhcivos que sirven como guia !!!
 
-## Demo
 
-![Mapa con grafo real de Sucre y Libertador](https://placehold.co/800x400?text=Screenshot+del+mapa)
 
-> 🟢 Calles reales &nbsp;|&nbsp; 🔵 Intersecciones &nbsp;|&nbsp; 🔴 Ruta calculada con Dijkstra
+> Calles reales , Intersecciones , Ruta calculada con Dijkstra
 
 ---
 
@@ -60,7 +59,7 @@ Proyecto académico que aplica conceptos de **Ciencias de la Computación** (gra
 
 ---
 
-## Instalación y uso
+## Guia instalación
 
 ### 1. Cloná el repo
 
@@ -169,13 +168,9 @@ trafico-sucre/
 - [x] API REST con NestJS
 - [x] Algoritmo de Dijkstra
 - [x] Visualización interactiva con Leaflet
-- [ ] Modelo de colas M/M/1 en semáforos
-- [ ] Optimización greedy de tiempos de semáforo
+- [x] Modelo de colas M/M/1 en semáforos
+- [x] Optimización greedy de tiempos de semáforo
 - [ ] Reporte PDF con Laravel
 - [ ] Animación paso a paso de Dijkstra
 
----
-
-## Autor
-
-**Juan** — Estudiante avanzado de Ciencias de la Computación
+--

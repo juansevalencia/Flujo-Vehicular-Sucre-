@@ -10,6 +10,12 @@ echo ""
 echo "🚗 Arrancando TraficoSucre..."
 echo "================================"
 
+# 0. Liberar puertos
+echo "🔌 Liberando puertos..."
+fuser -k 3000/tcp 2>/dev/null
+fuser -k 3001/tcp 2>/dev/null
+sleep 1
+
 # 1. Docker
 echo ""
 echo "📦 Levantando base de datos con Docker..."

@@ -45,6 +45,23 @@ async function main() {
     });
   }
 
+  // Insertar semáforos
+  console.log('🚦 Insertando semáforos...');
+  const semaforos = [
+    { nodeId: '81840856',  arrivalRate: 0.8, serviceRate: 1.2, greenTime: 30, redTime: 30 },
+    { nodeId: '89314609',  arrivalRate: 0.6, serviceRate: 1.0, greenTime: 25, redTime: 35 },
+    { nodeId: '241040483', arrivalRate: 0.9, serviceRate: 1.1, greenTime: 40, redTime: 20 },
+  ];
+
+  for (const semaforo of semaforos) {
+    await prisma.intersection.upsert({
+      where: { nodeId: semaforo.nodeId },
+      update: {},
+      create: semaforo,
+    });
+  }
+  console.log('✅ Semáforos insertados!');
+
   console.log('✅ Grafo cargado exitosamente!');
 }
 

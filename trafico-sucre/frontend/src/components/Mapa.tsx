@@ -22,6 +22,15 @@ interface Arista {
   toId: string;
 }
 
+interface Semaforo {
+  id: string;
+  nodeId: string;
+  arrivalRate: number;
+  serviceRate: number;
+  greenTime: number;
+  redTime: number;
+}
+
 export default function Mapa() {
   const [nodos, setNodos] = useState<Nodo[]>([]);
   const [origenId, setOrigenId] = useState('');
@@ -30,6 +39,7 @@ export default function Mapa() {
   const [distancia, setDistancia] = useState<number | null>(null);
   const [cargando, setCargando] = useState(false);
   const [aristas, setAristas] = useState<Arista[]>([]);
+  const [semaforos, setSemaforos] = useState<Semaforo[]>([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/grafo/nodos')
@@ -38,6 +48,9 @@ export default function Mapa() {
     fetch('http://localhost:3000/grafo/aristas')
       .then(r => r.json())
       .then(setAristas);
+    fetch('http://localhost:3000/semaforos')
+      .then(r => r.json())
+      .then(setSemaforos);  
   }, []);
 
   const calcularRuta = async () => {
@@ -135,6 +148,31 @@ export default function Mapa() {
             <Popup>ID: {nodo.id}</Popup>
           </CircleMarker>
         ))}
+
+        {/* Semáforos */}
+        {semaforos.map(sem => {
+          const nodo = nodos.find(n => n.id === sem.nodeId);
+          if (!nodo) return null;
+          const utilizacion = sem.arrivalRate / sem.serviceRate;
+          const color = utilizacion > 0.8 ? '#ef4444' : utilizacion > 0.6 ? '#f97316' : '#22c55e';
+          return (
+            <CircleMarker
+              key={sem.id}
+              center={[nodo.lat, nodo.lon]}
+              radius={12}
+              color={color}
+              fillColor={color}
+              fillOpacity={0.9}
+            >
+              <Popup>
+                <strong>🚦 Semáforo</strong><br />
+                Utilización: {Math.round(utilizacion * 100)}%<br />
+                Verde: {sem.greenTime}s | Rojo: {sem.redTime}s<br />
+                λ: {sem.arrivalRate} | μ: {sem.serviceRate}
+              </Popup>
+            </CircleMarker>
+          );
+        })}
 
         {/* Ruta calculada */}
         {coordenadasRuta.length > 1 && (

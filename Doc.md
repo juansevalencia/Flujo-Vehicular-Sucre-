@@ -114,3 +114,37 @@ Usamos atchivos tsx, son archivos de typescript con JSX. Escribis componentrs de
 
 Se usan para crear paginas, componentes, loyouts, manejar UI con tipado fuerte.
 
+## Modulo semaforos
+
+### Con los comandos npx creamos los moudlos en el backend de semaforos
+
+Se crean los archivos:
+
+1. module, agrupa cosas relacionadas y permite declarar que controladores y servicios pertenecena  este modulo.
+
+2.Controller, define las rutas HTTP, recibe requests get, post. La puerta de la entrada (API)
+
+3.Service, aca va la logica. Calcular tiempo de semaforo, aplicar reglas, acceder a la base de datos.
+
+
+
+### Modelo de Colas M/M/1
+
+Primero quiero aclarar que podría pasar mucho tiempo explicando como funciona el modelo de colas. 
+Pero basicamene usamos semaforos para el acceso a base de datos y el modelo de colas conocido, pueden buscarlo en internet,con ese modelo alimentamos los valores de tiempo de semaforo en verde y rojo(se puede ver en los archivos service  (logica)).
+
+Resumen, muy resumido del calculo de saturacion de los semaforos en el modelo de colas: 
+
+Vamos a usar el modelo M/M/1
+Markoviano (llegadas aleatorias) Markoviano(tiemposde servicio exponenciales) 1 (un solo servidor, el semaforo)
+
+Solo pasa un auto ala vez. Con esto puedo obtener cantidad promedio de autos en cola, tiempo promedio de espera, probabilidad de que haya congestion.
+
+p = lambda/ mu . si p >= 1 el sistema colapsa
+
+lambda = cantidad de autos que entran 
+
+mu = cantidad de autos que salen (el semaoforo deja pasar).
+
+## seed
+El seed es un script que inserta datos iniciales en la base de datos. Cada vez que lo cambiamos tenemos que correrlo devuelta porque no es codigo de app, es herramienta de setup.
