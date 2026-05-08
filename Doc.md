@@ -148,3 +148,12 @@ mu = cantidad de autos que salen (el semaoforo deja pasar).
 
 ## seed
 El seed es un script que inserta datos iniciales en la base de datos. Cada vez que lo cambiamos tenemos que correrlo devuelta porque no es codigo de app, es herramienta de setup.
+
+## Laravel 
+
+Vamos a generar los reportes en pdf con Laravel osbre los reportes del trafico.
+
+Completamos dentro de app/Job los archivos .php para generar Reportes pdf y Reporte mail.
+También el ReporteCOntroller.php 
+
+Creamos las vistas en html

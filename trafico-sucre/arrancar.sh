@@ -44,6 +44,15 @@ npm run dev &
 FRONTEND_PID=$!
 echo "   PID del frontend: $FRONTEND_PID"
 
+# 4. Laravel
+echo ""
+echo "📄 Arrancando Laravel en puerto 8000..."
+cd "$PROJECT_DIR/reports"
+php artisan serve --port=8000 &
+LARAVEL_PID=$!
+echo "   PID de Laravel: $LARAVEL_PID"
+
+
 echo ""
 echo "================================"
 echo "✅ Todo corriendo!"
@@ -52,6 +61,7 @@ echo "   🗺️  Frontend:  http://localhost:3001"
 echo "   ⚙️   Backend:   http://localhost:3000"
 echo "   🔍  Nodos:     http://localhost:3000/grafo/nodos"
 echo "   🔍  Aristas:   http://localhost:3000/grafo/aristas"
+echo "   📄  Laravel:    http://localhost:8000"
 echo ""
 echo "Para detener todo, presioná Ctrl+C"
 echo "================================"
