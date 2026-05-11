@@ -157,3 +157,9 @@ Completamos dentro de app/Job los archivos .php para generar Reportes pdf y Repo
 También el ReporteCOntroller.php 
 
 Creamos las vistas en html
+
+El GenerarReportePDF.php va a lleva a cabo qe lavarel llame a NestJS (Get/semaforos) sin depender de que alguine madne los datos
+
+El reporte.blade.ph genera el pdf.
+
+ReporteController.php necesita el mail.

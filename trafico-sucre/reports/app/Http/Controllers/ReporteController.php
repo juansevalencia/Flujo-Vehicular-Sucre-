@@ -11,13 +11,9 @@ class ReporteController extends Controller
     {
         $request->validate([
             'email' => 'required|email',
-            'semaforos' => 'required|array',
         ]);
 
-        GenerarReportePDF::dispatch(
-            $request->email,
-            $request->semaforos
-        );
+        GenerarReportePDF::dispatch($request->email);
 
         return response()->json([
             'mensaje' => 'Reporte en proceso, lo recibirás por email en breve.',
