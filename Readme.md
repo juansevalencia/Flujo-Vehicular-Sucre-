@@ -7,9 +7,9 @@ Hay solamente 3 semaforos cargados, la idea es mostrar que es totalmente extendi
 
 A partir de estos 3 semaforos podes generar un reporte en pdf sobre el estado del transito de estos semaforos, en la sección instalación vas a ver que se describe como instalarlo para que lo pruebes!
 
-![Captura del sistema](Flujo-Vehicular-Sucre-/Screenshot from 2026-05-11 12-31-02.png)
+![Captura del sistema](mapa.png)
 
-![Captura del sistema](Flujo-Vehicular-Sucre-/Screenshot from 2026-05-11 12-34-01.png)
+![Captura del sistema](reporte.png)
 
 
 > Calles reales · Intersecciones · Ruta calculada con Dijkstra · Reportes PDF por email
