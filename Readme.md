@@ -3,9 +3,9 @@
 Simulador de flujo vehicular sobre el corredor **Sucre → Libertador, Buenos Aires** usando datos reales de OpenStreetMap.
 
 Podes calcular el camino minimo desde cualquier punto en un rango aproximado de 10 cuadras desde sucre y libertador.
-Hay solamente 3 semaforos cargados, la idea es mostrar que es totalmente extendible para cargar todos los semforos.
+Hay solamente 5 semaforos cargados, la idea es mostrar que es totalmente extendible para cargar todos los semforos.
 
-A partir de estos 3 semaforos podes generar un reporte en pdf sobre el estado del transito de estos semaforos, en la sección instalación vas a ver que se describe como instalarlo para que lo pruebes!
+A partir de estos 5 semaforos podes generar un reporte en pdf sobre el estado del transito de estos semaforos, en la sección instalación vas a ver que se describe como instalarlo para que lo pruebes!
 
 ![Captura del sistema](mapa.png)
 
